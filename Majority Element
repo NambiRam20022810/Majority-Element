@@ -1,0 +1,34 @@
+import java.util.*;
+public class MyClass {
+    static int display(HashMap<Integer, Integer> map, int b) {
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int value = entry.getValue();
+            if (value > b) {
+                System.out.println(value);
+                return 0;
+            }
+        }
+            return -1;
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int c = a / 2;
+        int e = 0;
+        int[] b = new int[a];
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < a; i++) {
+            int count = 0;
+            b[i] = sc.nextInt();
+            if (map.containsKey(b[i])) {
+                int value = map.get(b[i]);
+                value++;
+                map.put(b[i], value);
+            } else {
+                map.put(b[i], ++count);
+            }
+        }
+        display(map, c);
+    }
+}
